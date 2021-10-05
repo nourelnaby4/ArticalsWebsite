@@ -1,0 +1,39 @@
+/* Start General Style */
+@import url("https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  font-size: 20px;
+  color: #3B7575;
+  direction: rtl;
+  font-family: "Amiri", serif !important; }
+
+/* End General Style */
+/* start UTILITIES Style */
+p {
+  color: #1b7272 !important;
+  opacity: 0.6;
+  font-size: 25px;
+  padding-top: 10px !important; }
+
+/* end UTILITIES Style */
+/*Start info Style*/
+.whoarewe-info {
+  padding: 120px 0; }
+  .whoarewe-info header.whoarewe-header {
+    font-size: 70px;
+    border-radius: 10px;
+    font-weight: bold; }
+  .whoarewe-info section {
+    border-right: 3px solid #EBA756;
+    margin-bottom: 80px; }
+    .whoarewe-info section header h2 {
+      font-size: 40px !important; }
+
+/*End info Style*/
+
+/*# sourceMappingURL=who-are-we.css.map */

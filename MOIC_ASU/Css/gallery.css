@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap");
+.gallery {
+  padding-top: 30px;
+  text-align: center; }
+  .gallery .campaigns {
+    overflow: hidden; }
+    .gallery .campaigns .col-12, .gallery .campaigns .col-md-5 {
+      padding: 0; }
+    .gallery .campaigns .campaign {
+      border: 2px solid #7c7c7c;
+      margin-bottom: 40px;
+      height: 250px;
+      overflow: hidden;
+      cursor: pointer;
+      -webkit-transition: all 0.4s;
+      -o-transition: all 0.4s;
+      transition: all 0.4s; }
+      .gallery .campaigns .campaign:hover {
+        -webkit-box-shadow: 1px 1px 5px #cecece;
+        box-shadow: 1px 1px 5px #cecece;
+        -webkit-transform: scale(1.03, 1.03);
+        -ms-transform: scale(1.03, 1.03);
+        transform: scale(1.03, 1.03); }
+      .gallery .campaigns .campaign .campaign-images {
+        height: 100%;
+        display: grid;
+        -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        -ms-grid-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr; }
+      .gallery .campaigns .campaign .individual-image {
+        height: 250px; }
+      .gallery .campaigns .campaign .item-image {
+        background-size: cover;
+        height: 100%;
+        background-position: center center;
+        width: 100%; }
+      .gallery .campaigns .campaign .image {
+        padding: 1px;
+        height: 125px; }
+        .gallery .campaigns .campaign .image .img {
+          height: 100%;
+          background-size: cover;
+          background-position: center center; }
+
+@media (min-width: 700px) {
+  .campaign {
+    margin-right: 15px; } }
+
+/*# sourceMappingURL=gallery.css.map */

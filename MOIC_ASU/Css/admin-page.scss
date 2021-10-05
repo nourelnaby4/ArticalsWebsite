@@ -1,0 +1,62 @@
+/* Start General Style */
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap');
+$mainColor:#3B7575;
+$accentColor:#EBA756;
+$mainFontFamily:"Amiri",serif;
+$mainFontSize:20px;
+
+body{
+    direction: rtl;
+    margin:0;
+    padding:0;
+}
+/* End General Style*/
+
+/*Start header style*/
+.page-header{
+    background-color:white;
+    height:100px;
+
+    .logo-image{
+        position: absolute;
+        top:5px;
+        right:10px;   
+    }
+    .profile-image{
+        position: absolute;
+        top:20px;
+        left:10px;
+    }
+}
+/*End header style*/
+
+/*Start aside style*/
+aside{
+    padding:0 10px;
+    color:white;
+    font-size:1.5em;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:$mainColor;
+    width:100px;
+    ul{
+        li{
+            cursor: pointer;
+            &:hover{
+                color:$accentColor
+            }
+        }
+        line-height: 2.5;
+    }
+}
+/*End aside style*/
+/*Start content style*/
+.content{
+    header{
+        
+    }
+}
+
+/*End content style*/

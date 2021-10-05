@@ -1,0 +1,336 @@
+﻿
+@using MOIC_ASU.Models;
+@model dynamic
+
+@{
+    ViewBag.Title = "الصفحة الرئيسية";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<!--Start slider-->
+<section class="slider">
+    <div class="container">
+        <div id="slider_images" class="carousel slide" data-ride="carousel">
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="over-spoken col-8">
+                        <div class="row">
+                            <div class="spoken-image image d-lg-block d-none col-5"
+                                 style="background-image: url(@Url.Content("~/Images/spoken.jpg"))"name="HomeImage">
+                            </div>
+                            <div class="spoken-text col-lg-7 col-12">
+                                <p class="text" name="HomeStatus">
+                                    "احذر أن تقلل من عملك مهمًا كان، فقد يكون عملك البسيط هذا
+                                    بمساندة
+                                    النية
+                                    والمداومة
+                                    عليه سببا في عِظم أجرك، فحاول في سقف الممكن لك واجعله يصنع أثرك."
+                                </p>
+                                <span class="spoken-writer" name="Spoken">
+                                   @Session["statu"]
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="org-info">
+                        <h2 name="MoicInfo">
+                            مويك هي نموذج
+                            محاكاة منظمة التعاون الإسلام
+                            نشاط طلابى بجامعة عين شمس
+                        </h2>
+                        <a href="WhoAreWe.html"><button class="know-us">اعرف عنا</button></a>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev carousel" href="#slider_images" role="button" data-slide="prev">
+                <i class="fas fa-angle-left" aria-hidden="true"></i>
+            </a>
+            <a class="carousel-control-next carousel" href="#slider_images" role="button" data-slide="next">
+                <i class="fas fa-angle-right" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+</section>
+<!--End Slide-->
+<!--Start Articles-->
+<section class="articles-section articles-style ">
+    <div class="container">
+        <header>
+            <h2 class="headline articles-header text-right">
+                مقالاتنا
+            </h2>  
+        </header>
+        <hr class="hr-article-style">
+        <section class="articles">
+            <div class="row ">
+                <div class="articles-row row justify-content-around">
+                    @foreach (Articale a in Model.articales)
+                    {
+
+                    <article class="article col-lg-5 col-md-12">
+
+                        <div class="content">
+
+                            <div class="row">
+
+                                <!--put article image here  !!!!-->
+                                <div class="article-image  col-12">
+                                    <a href="@Url.Action("Details", "Articales", new { id = a.Id })">
+                                        <img src="~/Uploads/@a.ArticaleCover"
+                                             style="width:100%;height:205px; " />
+                                    </a>
+                                </div>
+
+
+                                <div class="article-info col-12">
+                                    <span class=article-category>
+                                        @a.Categories.CAtegoryName
+                                    </span>
+                                    <header>
+                                        <h3 class="article-header">
+                                            @a.ArticaleTitle
+                                        </h3>
+                                    </header>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+
+                    </article>
+
+                    }
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+</section>
+
+<!--End Articles-->
+<!--Start Gallery-->
+<section class="gallery">
+    <div class="container">
+        <header>
+            <h2 class="gallery-header headline text-right gallery-header">معرضنا</h2>
+        </header>
+        <hr class="hr-gallery-style">
+        <section class="campigns">
+            <div class="row justify-content-around">
+                <div class="campign col-12 col-md-5">
+                    <div id="campign-images1" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item all-images active">
+                                <div class="campign-images">
+                                    <div class="image ">
+                                        <div class="img" style="background-image: url('/Images/campaign5.jpg')">
+                                        </div>
+                                    </div>
+                                    <div class="image ">
+                                        <div class="img" style="background-image: url('@Url.Content("~/Images/campaign1.jpg")')">
+                                        </div>
+                                    </div>
+                                    <div class="image ">
+                                        <div class="img" style="background-image: url('@Url.Content("~/Images/spoken.jpg")')">
+                                        </div>
+                                    </div>
+                                    <div class="image ">
+                                        <div class="img" style="background-image:url('@Url.Content("~/Images/spoken.jpg")')">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item individual-image">
+                                <div class="item-image" style="background-image:url('@Url.Content("~/Images/spoken.jpg")')">
+                                </div>
+                            </div>
+                            <div class="carousel-item individual-image">
+                                <div class="item-image" style="background-image:url('@Url.Content("~/Images/spoken.jpg")')">
+                                </div>
+                            </div>
+                            <div class="carousel-item individual-image">
+                                <div class="item-image" style="background-image: url('@Url.Content("~/Images/spoken.jpg")')">
+                                </div>
+                            </div>
+                            <div class="carousel-item individual-image">
+                                <div class="item-image" style="background-image:url('@Url.Content("~/Images/spoken.jpg")')">
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#campign-images1" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#campign-images1" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="campign col-12 col-md-5">
+                    <div id="campign-images2" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="campign-images">
+                                    <div class="image ">
+                                        <div class="img" style="background-image:url('@Url.Content("~/Images/spoken.jpg")')">
+                                        </div>
+                                    </div>
+                                    <div class="image ">
+                                        <div class="img" style="background-image: url('@Url.Content("~/Images/spoken.jpg")')">
+                                        </div>
+                                    </div>
+                                    <div class="image ">
+                                        <div class="img" style="background-image:url('@Url.Content("~/Images/spoken.jpg")')">
+                                        </div>
+                                    </div>
+                                    <div class="image ">
+                                        <div class="img" style="background-image:url('@Url.Content("~/Images/spoken.jpg")')">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item individual-image">
+                                <div class="item-image" style="background-image:url('@Url.Content("~/Images/spoken.jpg")')">
+                                </div>
+                            </div>
+                            <div class="carousel-item individual-image">
+                                <div class="item-image" style="background-image:url('@Url.Content("~/Images/spoken.jpg")')">
+                                </div>
+                            </div>
+                            <div class="carousel-item individual-image">
+                                <div class="item-image" style="background-image:url('@Url.Content("~/Images/spoken.jpg")')">
+                                </div>
+                            </div>
+                            <div class="carousel-item individual-image">
+                                <div class="item-image" style="background-image: url('@Url.Content("~/Images/spoken.jpg")')">
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#campign-images2" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#campign-images2" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="campign col-12 col-md-5">
+                    <div id="campign-images3" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="campign-images">
+                                    <div class="image ">
+                                        <div class="img" style="background-image: url('images/campaign5.jpg')">
+                                        </div>
+                                    </div>
+                                    <div class="image ">
+                                        <div class="img" style="background-image: url('Images/campaign1.jpg')">
+                                        </div>
+                                    </div>
+                                    <div class="image ">
+                                        <div class="img" style="background-image: url('images/campaign3.jpg')">
+                                        </div>
+                                    </div>
+                                    <div class="image ">
+                                        <div class="img" style="background-image: url('images/campaign2.jpg')">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item individual-image">
+                                <div class="item-image" style="background-image: url(images/campaign5.jpg)">
+                                </div>
+                            </div>
+                            <div class="carousel-item individual-image">
+                                <div class="item-image" style="background-image: url(images/campaign2.jpg)">
+                                </div>
+                            </div>
+                            <div class="carousel-item individual-image">
+                                <div class="item-image" style="background-image: url(images/campaign3.jpg)">
+                                </div>
+                            </div>
+                            <div class="carousel-item individual-image">
+                                <div class="item-image" style="background-image: url(images/campaign4.jpg)">
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#campign-images3" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#campign-images3" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="campign col-12 col-md-5">
+                    <div id="campign-images4" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="campign-images">
+                                    <div class="image ">
+                                        <div class="img" style="background-image: url('images/campaign5.jpg')">
+                                        </div>
+                                    </div>
+                                    <div class="image ">
+                                        <div class="img" style="background-image: url('Images/campaign1.jpg')">
+                                        </div>
+                                    </div>
+                                    <div class="image ">
+                                        <div class="img" style="background-image: url('images/campaign3.jpg')">
+                                        </div>
+                                    </div>
+                                    <div class="image ">
+                                        <div class="img" style="background-image: url('images/campaign2.jpg')">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item individual-image">
+                                <div class="item-image" style="background-image: url('images/campaign5.jpg')">
+                                </div>
+                            </div>
+                            <div class="carousel-item individual-image">
+                                <div class="item-image" style="background-image: url('images/campaign2.jpg')">
+                                </div>
+                            </div>
+                            <div class="carousel-item individual-image">
+                                <div class="item-image" style="background-image: url('images/campaign3.jpg')">
+                                </div>
+                            </div>
+                            <div class="carousel-item individual-image">
+                                <div class="item-image" style="background-image: url('images/campaign4.jpg')">
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#campign-images4" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#campign-images4" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <a href="Gallery.html"> <span class="see-more text-center">مشاهدة المزيد</span></a>
+    </div>
+</section>
+<script>
+    @Session["statu"]=
+</script>

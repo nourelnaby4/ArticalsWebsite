@@ -1,0 +1,63 @@
+
+/* start general style*/
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap');
+$mainColor:#3B7575;
+$accentColor:#FF9452;
+$mainFontFamily:"Amiri", serif;
+$mainFontSize:20px;
+/* end general style*/
+
+/* Start Articles Style */
+.articles-style {
+	padding:40px 0;
+	.articles {
+		overflow: hidden;
+		.article {
+			margin-left:50px;
+			margin-bottom:40px;
+			border:1px solid rgb(184, 184, 184);
+			box-shadow:2px 2px 5px rgb(224, 224, 224) ;
+			overflow: hidden;
+			cursor: pointer;
+			border-radius: 3px;
+			transition: all 0.4s;
+            &:hover{
+				box-shadow: 2px 2px 5px rgb(224, 224, 224) ;
+				transform: scale(1.03,1.03);
+			}
+			.article-image{
+				overflow: hidden;
+				background-position: center;
+				background-size: cover;
+				height:200px;
+			}
+			.article-info {          
+                overflow: hidden;
+				padding: 12px 30px !important;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				
+				h3 {
+					margin-bottom: 0;
+					text-align: right;
+					line-height: 1.5;
+					color: $mainColor;
+					font-size: 1em ;
+				}
+			
+				.article-category{
+					opacity: 0.6;
+					background-color:#E1E1E1;
+					padding:3px 15px;
+					font-size: 0.65em;
+					border-radius: 10px;
+					margin-bottom:8px
+				}
+			}
+		}
+	}
+}
+/* End Articles Style */
+
+

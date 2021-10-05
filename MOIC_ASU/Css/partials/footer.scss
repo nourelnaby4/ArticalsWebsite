@@ -1,0 +1,39 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
+$mainColor:#3B7575;
+$accentColor:#EBA756;
+$mainFontFamily:"Amiri",serif;
+$mainFontSize:20px; 
+
+footer{
+    opacity: 0.8;
+    color:$mainColor;
+    border-top:1px solid rgb(199, 199, 199);
+    padding:30px 0 0;
+    font-size:$mainFontSize;
+    ul{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        li{
+            a{
+                color:$mainColor;
+                &:hover{
+                    color:$accentColor !important
+                }
+            }
+            margin-right:20px;
+        }
+        }
+}

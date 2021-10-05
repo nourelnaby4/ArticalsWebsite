@@ -1,0 +1,56 @@
+﻿@model MOIC_ASU.Models.TempArticale
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div id="fb-root"></div>
+
+<article class="individual-article">
+    <div class="container">
+        <!--start article header-->
+        <section class="article-header">
+            <header class="text-center">
+                <h1>
+                    @Html.DisplayFor(model => model.ArticaleTitle)
+                </h1>
+                <div class="article-image">
+                    <img src="~/Uploads/@Html.DisplayFor(model => model.ArticaleCover)"
+                         style="width:90%;height:500px; " />
+                    
+                </div>
+            </header>
+            <section class="info">
+                <div class="container">
+                    <div class="row">
+                        <section class="writer-info text-right">
+                            <a href="@Url.Action("WriterPage","Home")">
+
+                                @{
+                                    Session["ID"] = Model.UserID;
+                                }
+                                <div class="writer-image"><img src="~/Images/publisher.jpg" alt="writer image" style="width:40px;height:40px;"></div>
+                                <div class="info">
+                                    <h2 class="writer-name">@Html.DisplayFor(m => m.User.UserName)  </h2>
+                                    <p class="writer-profession">طالب بكلية علوم الحاسوب</p>
+                                </div>
+                                </a>
+                        </section>
+
+                    </div>
+                </div>
+            </section>
+        </section>
+        <!--end article header-->
+        <!--start article content-->
+        <section class="article-content text-right">
+            <p>
+
+                @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(model => model.ArticaleContent).ToString()))
+
+            </p>
+        </section>
+        <!--end article content-->
+    </div>
+</article>

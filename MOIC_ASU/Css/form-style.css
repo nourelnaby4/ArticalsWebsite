@@ -1,0 +1,46 @@
+/* Start General Style */
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300&display=swap");
+body {
+  font-size: 20px;
+  color: #3B7575 !important;
+  direction: rtl;
+  font-family: Cairo, -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol, noto color emoji !important; }
+
+.form {
+  font-weight: bold;
+  margin: 50px; }
+  .form .write-header h1 {
+    font-weight: bold; }
+  .form hr {
+    width: 110px;
+    margin-bottom: 40px; }
+  .form label {
+    margin-bottom: 4px;
+    display: block;
+    color: #3B7575 !important; }
+  .form fieldset {
+    font-size: 1em;
+    margin-bottom: 50px; }
+  .form input:not([type="file"]) {
+    padding: 3px 10px;
+    outline: none;
+    border-radius: 5px;
+    border: 0.5px solid #9c9c9c; }
+    .form input:not([type="file"]):focus {
+      border: 0.5px solid #EBA756; }
+  .form select {
+    border: 0.5px solid #9c9c9c;
+    outline: none;
+    border-radius: 5px;
+    padding: 2px 10px;
+    margin-bottom: 7px; }
+  .form button {
+    background-color: #3B7575;
+    outline: none;
+    border: none;
+    margin-top: 30px;
+    border-radius: 5px;
+    padding: 5px 20px;
+    color: white; }
+
+/*# sourceMappingURL=form-style.css.map */

@@ -1,0 +1,45 @@
+/* Start General Style */
+@import url("https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap");
+body {
+  direction: rtl;
+  margin: 0;
+  padding: 0; }
+
+/* End General Style*/
+/*Start header style*/
+.page-header {
+  background-color: white;
+  height: 100px; }
+  .page-header .logo-image {
+    position: absolute;
+    top: 5px;
+    right: 10px; }
+  .page-header .profile-image {
+    position: absolute;
+    top: 20px;
+    left: 10px; }
+
+/*End header style*/
+/*Start aside style*/
+aside {
+  padding: 0 10px;
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #3B7575;
+  width: 100px; }
+  aside ul {
+    line-height: 2.5; }
+    aside ul li {
+      cursor: pointer; }
+      aside ul li:hover {
+        color: #EBA756; }
+
+/*End aside style*/
+/*Start content style*/
+/*End content style*/
+
+/*# sourceMappingURL=admin-page.css.map */

@@ -1,0 +1,73 @@
+
+/* Start General Style */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300&display=swap');
+$mainColor:#3B7575;
+$accentColor:#EBA756;
+$mainFontFamily:Cairo,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol,noto color emoji;
+$mainFontSize:20px;
+
+*{
+    padding:0;
+    margin:0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+body{
+    background-color:whitesmoke !important;
+    font-size: $mainFontSize;
+    color:$mainColor;
+    direction: rtl;
+    font-family: $mainFontFamily !important;
+}
+/* End General Style */
+
+/* start UTILITIES Style */
+
+.active-link{
+    border-bottom:3px solid $accentColor;
+} 
+
+
+hr{
+    background-color:$accentColor;
+    height:1.5px !important;
+    width:150px;
+    margin-top:0 !important;
+    margin-bottom:50px !important
+}
+
+.headline{
+    color:$mainColor;
+    font-size: 50px;
+    font-weight: bold;
+}
+.image{
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;  
+}
+span.see-more {
+    display: block;
+    width:140px;
+    width: fit-content;
+    margin: 30px auto;
+    background-color: white;
+    border: none;
+    color: $accentColor;
+    padding: 5px 20px;
+    border-radius: 15px;
+    -webkit-box-shadow: 0 0.5px 1px rgb(141, 141, 141);
+            box-shadow: 0 0.5px 1px rgb(141, 141, 141);
+    cursor: pointer;
+        &:hover{
+            -webkit-transform: scale(1.03,1.03);
+                -ms-transform: scale(1.03,1.03);
+                    transform: scale(1.03,1.03);
+        }
+    
+}
+
+a{
+    text-decoration: none !important;
+}
+/* End UTILITIES Style */ 

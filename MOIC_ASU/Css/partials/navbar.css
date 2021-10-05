@@ -1,0 +1,48 @@
+/* Start Navbar Style */
+@import url("https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap");
+nav {
+  font-size: 1.2em;
+  -webkit-box-shadow: 0.5px 0.5px 5px #a0a0a0;
+  box-shadow: 0.5px 0.5px 5px #a0a0a0;
+  background-color: white;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important; }
+  nav a.navbar-brand {
+    height: 90px; }
+    nav a.navbar-brand img {
+      height: 100% !important; }
+  nav ul.navbar-nav {
+    opacity: 0.9;
+    margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-pack: distribute;
+    justify-content: space-around; }
+    nav ul.navbar-nav li {
+      padding: 10px;
+      font-size: 19px; }
+  nav a {
+    color: #3B7575 !important; }
+    nav a:hover {
+      color: #EBA756 !important; }
+  nav .signup {
+    background-color: #EBA756;
+    border-radius: 13px;
+    font-weight: bold;
+    font-size: 12px; }
+    nav .signup:hover {
+      background-color: #f1b469; }
+    nav .signup a {
+      color: white !important; }
+
+/* End Navbar Style */
+@media (max-width: 800px) {
+  .active-link {
+    border: none; } }
+
+/*# sourceMappingURL=navbar.css.map */

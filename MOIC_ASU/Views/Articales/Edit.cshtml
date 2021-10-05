@@ -1,0 +1,101 @@
+﻿@model MOIC_ASU.Models.Articale
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+    <div class="alert alert-danger" id="error-div" style="display:none">
+        <span id="error-span">
+
+        </span>
+
+    </div>
+    @using (Html.BeginForm("Edit", "Articales", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Articale</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ArticaleTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ArticaleTitle, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ArticaleTitle, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ArticaleCover, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="file" name="upload" />
+                    @Html.ValidationMessageFor(model => model.ArticaleCover, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ArticaleContent, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ArticaleContent, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ArticaleContent, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CategoryId, "CategoryId", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script>
+        $(function () {
+            //chick if the image is empty
+
+            $("#save").click(function () {
+                /*  if ($("#JobImage").val() == "") {
+                      $("#error-div").fadeIn();
+                      $("#error-span").append("برجاء قم باختيار صورة للوظيفة");
+                      return false;
+                  }
+                  */
+
+                //chick if image extention is valid
+                if ($("#MyImage").val() != "") {
+                    var filename = document.getElementById("MyImage").value;
+                    var extentionfile = filename.substr(filename.lastIndexOf('.') + 1);
+                    var validextention = ['jpg', 'png', 'gif', 'bmp', 'jpeg'];
+                    if ($.inArray(extentionfile, validextention) == -1) {
+                        $("#error-div").fadeIn();
+                        $("#error-span").append("برجاء قم باختيار صورة بامتداد صحيح");
+                        return false;
+                    }
+                    //check if image size smaller than 2m
+                    var filesize = document.getElementById("MyImage").files[0].size / 1024 / 1024;
+                    if (filesize > 2) {
+                        $("#error-div").fadeIn();
+                        $("#error-span").append("برجاء قم باختيار صورة حجمها اقل من 2 ميجا بايت");
+                        return false;
+                    }
+                }
+            });
+        });
+    </script>

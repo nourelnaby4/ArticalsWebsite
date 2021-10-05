@@ -1,0 +1,125 @@
+﻿
+
+@using MOIC_ASU.Models;
+@model dynamic
+@{
+    Articale a = Model.details;
+
+}
+@{
+    ViewBag.Title = "Details";
+}
+<section class="articles-style text-center">
+
+    <div class="container">
+        <div id="fb-root"></div>
+
+   
+                <!--start article header-->
+                <section class="article-header">
+                    <header class="text-center">
+                        <h1>
+                            @a.ArticaleTitle
+                        </h1>
+                        <div class="article-image">
+                            <img src="~/Uploads/@a.ArticaleCover"
+                                 style="width:90%;height:500px; " />
+
+                        </div>
+                    </header>
+                    <section class="info">
+                        <div class="container">
+                            <div class="row">
+                                <section class="writer-info text-right">
+
+                                    <a href="@Url.Action("WriterPage","Home")">
+
+                                        @{
+                                            Session["ID"] = a.UserID;
+                                        }
+                                        <div class="writer-image"><img src="~/Images/publisher.jpg" alt="writer image" style="width:40px;height:40px;"></div>
+                                        <div class="info">
+                                            <h2 class="writer-name">@a.User.UserName  </h2>
+                                            <p class="writer-profession">طالب بكلية علوم الحاسوب</p>
+                                        </div>
+                                    </a>
+                                </section>
+
+                            </div>
+                        </div>
+                    </section>
+                </section>
+                <!--end article header-->
+                <!--start article content-->
+                <section class="article-content text-right">
+                    <p>
+
+                        @Html.Raw(HttpUtility.HtmlDecode(a.ArticaleContent).ToString())
+
+                    </p>
+                </section>
+            </div>
+    
+          </section>
+<!--end article content-->
+<!--start additional articles for same writer-->
+<section class="articles-style text-center">
+
+    <div class="container">
+
+        <header>
+            <h2 class="headline articles-header text-right">
+                مقالاتنا
+            </h2>
+        </header>
+        <hr>
+        <section class="articles">
+            <div class="row ">
+
+
+                @foreach (Articale articale in Model.suggestionarticales)
+                {
+                    <article class="article col-lg-5 col-md-12">
+                        <div class="content">
+                            <div class="row">
+
+                                <!--put article image here  !!!!-->
+                                <div class="article-image  col-12">
+                                    <a href="@Url.Action("Details", "Articales",new { id=articale.Id})">
+                                        <img src="~/Uploads/@articale.ArticaleCover"
+                                             style="width:100%;height:205px; " />
+                                    </a>
+                                </div>
+
+                                <div class="article-info col-12">
+                                    <span class=article-category>@articale.Categories.CAtegoryName</span>
+                                    <!--put article category here  !!!!-->
+                                    <header>
+                                        <h3 class="article-header">
+                                            @articale.ArticaleTitle
+                                        </h3>
+                                    </header>
+                                    <div class="article-options">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                        <div class="options-list d-none">
+                                            <form action="">
+                                                <button class="delete-button" type="submit">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </button>
+                                            </form>
+                                            <a href="write-article.html" class="edit-article">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </article>
+                }
+            </div>
+        </section>
+        </div>
+    </section>

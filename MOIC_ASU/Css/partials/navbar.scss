@@ -1,0 +1,65 @@
+
+/* Start Navbar Style */
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap');
+$mainColor:#3B7575;
+$accentColor:#EBA756;
+$mainFontFamily:"Amiri",serif;
+$mainFontSize:20px;
+
+nav{  
+    font-size:1.2em;
+    -webkit-box-shadow: 0.5px 0.5px 5px rgb(160, 160, 160);
+            box-shadow: 0.5px 0.5px 5px rgb(160, 160, 160);
+    background-color:white;
+    padding-top:0 !important;
+    padding-bottom:0 !important;
+    a.navbar-brand{
+        height:90px;
+        img{
+            height:100% !important;
+        }
+    }
+    ul.navbar-nav{
+        opacity: 0.9;
+        margin:auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+        li{
+            padding:10px;
+            font-size:19px;
+        }
+    }
+    a{       
+        color:$mainColor !important;
+        &:hover{
+            color:$accentColor !important
+        }
+    }
+    .signup{
+        background-color:$accentColor;
+        border-radius: 13px;
+        font-weight: bold;
+        font-size:12px;
+        &:hover{
+            background-color:#f1b469
+        }
+        a{
+        color:white !important; 
+        }
+    }
+    
+}
+/* End Navbar Style */
+
+@media (max-width:800px){
+    .active-link{
+        border:none;
+    }
+}

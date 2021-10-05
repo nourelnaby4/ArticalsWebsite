@@ -1,0 +1,414 @@
+﻿@*
+    @using (Html.BeginForm("Create", "Articales", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Articale</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.AtricaleTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.AtricaleTitle, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AtricaleTitle, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.AtricaleCover, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="file" name="upload" />
+                    @Html.ValidationMessageFor(model => model.AtricaleCover, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.AtricaleContant, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.AtricaleContant, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AtricaleContant, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CategoryId, "نوع المقال", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+*@
+@*
+    <section class="form text-right">
+        <div class="container">
+            <header class="write-header">
+                <h1>اكتب</h1>
+                <div class="alert alert-danger" id="error-div" style="display:none">
+                    <span id="error-span">
+
+                    </span>
+
+                </div>
+            </header>
+            <hr>
+            @using (Html.BeginForm("Create", "Articales", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <fieldset>
+                    <label for="article-title">عنوان المقال</label>
+                    <input type="text" id="article-title" name="ArticalTitle">
+                </fieldset>
+                <fieldset>
+                    <label for="article-cover">غلاف المقال</label>
+                    <input type="file" id="article-cover" name="upload">
+                </fieldset>
+                <fieldset>
+                    <label for="article-type">نوع المقال</label>
+                    @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "atrtical-type" })
+                    @* <select name="Articale" id="article-type" class="article-type">
+                <option value="أدبي"> أدبي</option>
+                <option value="سياسة">سياسة</option>
+                <option value="علوم">علوم</option>
+                <option value="ثقافة">ثقافة</option>
+                <option value="فنون">فنون</option>
+            </select>*@
+@* </fieldset>
+    <label for="content">المحتوى</label>
+    <textarea name="content" id="content" cols="30" rows="10"></textarea>
+    <button type="submit">انشر</button>
+                            }
+                        </div>
+                    </section>
+*@@*
+    <script>
+        $(function () {
+            //chick if the image is empty
+
+            $("#save").click(function () {
+                if ($("#MyImage").val() == "") {
+                    $("#error-div").fadeIn();
+                    $("#error-span").append("برجاء قم باختيار صورة للوظيفة");
+
+                    return false;
+                }
+
+
+                //chick if image extention is valid
+
+                var filename = document.getElementById("MyImage").value;
+                var extentionfile = filename.substr(filename.lastIndexOf('.') + 1);
+                var validextention = ['jpg', 'png', 'gif', 'bmp', 'jpeg'];
+                if ($.inArray(extentionfile, validextention) == -1) {
+                    $("#error-div").fadeIn();
+                    $("#error-span").append("برجاء قم باختيار صورة بامتداد صحيح");
+                    return false;
+                }
+                //check if image size smaller than 2m
+                var filesize = document.getElementById("MyImage").files[0].size / 1024 / 1024;
+                if (filesize > 2) {
+                    $("#error-div").fadeIn();
+                    $("#error-span").append("برجاء قم باختيار صورة حجمها اقل من 2 ميجا بايت");
+                    return false;
+                }
+
+            });
+        });
+    </script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/b7m6nhp1vont8onhwbehopu9tvpwxum80kez4ct43vjn5gzt/tinymce/5/tinymce.min.js"
+            referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: "#content",
+            plugins: 'lists, link, textpattern ',
+            textpattern_patterns: [
+                { start: '#', format: 'h1' },
+                { start: '##', format: 'h2' },
+                { start: '###', format: 'h3' },
+                { start: '####', format: 'h4' },
+                { start: '#####', format: 'h5' },
+                { start: '######', format: 'h6' },
+                { start: '*', end: '*', format: 'italic' },
+                { start: '**', end: '**', format: 'bold' },
+                { start: '-', cmd: 'InsertUnorderedList' },
+                { start: '* ', cmd: 'InsertOrderedList' },
+                { start: '~', end: '~', cmd: 'createLink' },
+                { start: '---', replacement: '<hr/>' }
+            ],
+            fontsize_formats: "8pt 9pt 10pt 11pt 12pt 14pt 18pt 24pt 30pt 36pt 48pt",
+            content_style: "body{font-size:18pt;}",
+            toolbar: "undo redo | styleselect | bold italic | fontsizeselect | alignleft aligncenter alignright alignjustify | bullist numlist |forecolor backcolor| preview code | outdent indent",
+            menubar: false,
+        });
+    </script>
+*@
+@*
+        <!DOCTYPE html>
+        <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="discription" content="">
+            <link rel="stylesheet" href="~/Css/partials/navbar.css">
+            <link rel="stylesheet" href="~/Css/partials/General styles.css">
+            <link rel="stylesheet" href="~/Css/partials/footer.css">
+            <link rel="stylesheet" href="~/Css/all.min.css">
+            <link rel="stylesheet" href="~/Css/bootstrap.min.css">
+            <link rel="stylesheet" href="~/Css/form-style.css">
+            <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+            <script src="https://cdn.tiny.cloud/1/b7m6nhp1vont8onhwbehopu9tvpwxum80kez4ct43vjn5gzt/tinymce/5/tinymce.min.js"
+                    referrerpolicy="origin"></script>
+            <script>
+                tinymce.init({
+                    selector: "#content",
+                    plugins: 'lists, link, textpattern ',
+                    textpattern_patterns: [
+                        { start: '#', format: 'h1' },
+                        { start: '##', format: 'h2' },
+                        { start: '###', format: 'h3' },
+                        { start: '####', format: 'h4' },
+                        { start: '#####', format: 'h5' },
+                        { start: '######', format: 'h6' },
+                        { start: '*', end: '*', format: 'italic' },
+                        { start: '**', end: '**', format: 'bold' },
+                        { start: '-', cmd: 'InsertUnorderedList' },
+                        { start: '* ', cmd: 'InsertOrderedList' },
+                        { start: '~', end: '~', cmd: 'createLink' },
+                        { start: '---', replacement: '<hr/>' }
+                    ],
+                    fontsize_formats: "8pt 9pt 10pt 11pt 12pt 14pt 18pt 24pt 30pt 36pt 48pt",
+                    content_style: "body{font-size:18pt;}",
+                    toolbar: "undo redo | styleselect | bold italic | fontsizeselect | alignleft aligncenter alignright alignjustify | bullist numlist |forecolor backcolor| preview code | outdent indent",
+                    menubar: false,
+                });
+
+                CKEDITOR.replace("ArticaleContant");
+
+            </script>
+            <title>اكتب</title>
+        </head>
+    <!--
+    <body>
+
+        <!DOCTYPE html>
+        <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="discription" content="">
+            <link rel="preload" as="style" href="~/Css/partials/navbar.css" onload="this.rel='stylesheet'">
+            <link rel="preload" as="style" href="~/Css/bootstrap.min.css" onload="this.rel='stylesheet'">
+            <link rel="preload" as="style" href="~/Css/partials/General styles.css" onload=" this.rel='stylesheet'">
+            <title> MOIC </title>
+        </head>
+    -->
+    <body>
+        @model MOIC_ASU.Models.Articale
+
+        @{
+            ViewBag.Title = "Create";
+
+        }
+        <!--Start header-->
+        <header class="home-header">
+            <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+                <div class="container">
+                    <a class="navbar-brand text-center" href="Home.html">
+                        <img src="~/Images/Moic-logo.png" alt="Logo" />
+                    </a>
+                    <span class="logo-text"></span>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse text-center " id="navbarNav">
+                        <ul class="navbar-nav d-flex">
+                            <li class="nav-item section-elements ">
+                                <a class="nav-link Home active-link " href="Home.html">الرئيسية</a>
+                            </li>
+
+                            <li class="nav-item section-elements">
+                                <a class="nav-link" href="Articles.html">مقالاتنا</a>
+                            </li>
+
+                            <li class="nav-item publish section-elements">
+                                <a class="nav-link" href="Gallery.html">المعرض</a>
+                            </li>
+
+                            <li class="nav-item publish section-elements">
+                                <a class="nav-link" href="Write-article.html">اكتب</a>
+                            </li>
+                        </ul>
+
+                        <!--an anonymous user (doesn't login or signup yet)-->
+                        <ul class="list-unstyled  ">
+                            <li class="nav-item signup">
+                                <a class="nav-link" href="SignUp.html">إشتراك</a>
+                            </li>
+
+                        </ul>
+                        <!---->
+                    </div>
+                </div>
+            </nav>
+        </header>*@
+<!--End header-->
+<!--start form-->
+
+
+@model MOIC_ASU.Models.Articale
+
+@{
+    ViewBag.Title = "Create";
+
+}
+<section class="form text-right">
+    <div class="container">
+        <header class="write-header">
+            <h1>اكتب</h1>
+        </header>
+        <hr>
+        <input id="ArticaleCover" name="ArticaleCover" type="hidden" value="" />
+        <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+        @using (Html.BeginForm("Create", "Articales", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="alert alert-danger" id="error-div" style="display:none">
+                <span id="error-span">
+
+                </span>
+
+            </div>
+
+            <fieldset>
+                <label for="article-title">عنوان المقال</label>
+                <input type="text" id="article-title" name="ArticaleTitle">
+            </fieldset>
+            <fieldset>
+                <label for="article-cover">غلاف المقال</label>
+                <input type="file" id="article-cover" name="upload">
+            </fieldset>
+            <fieldset>
+                <label for="article-type">نوع المقال</label>
+                @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "atrtical-type" })
+
+            </fieldset>
+            @*
+            <div class="form-group">
+                <label for="content">المحتوى</label>
+                <!-- <textarea name="ArticaleContant" id="content" cols="30" rows="10"></textarea>-->
+                @Html.TextAreaFor(model => model.AtricaleContant, new { htmlAtrributes = new { @class = "form-control", @id = "ArticaleContant" } })
+                @Html.ValidationMessageFor(model => model.AtricaleContant, "", new { @class = "text-danger" })
+
+                </div>
+            *@
+            <div class="form-group">
+                @Html.LabelFor(model => model.ArticaleContent, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.ArticaleContent, new { htmlAttributes = new { @class = "form-control", @id = "ArticaleContent" } })
+                    @Html.ValidationMessageFor(model => model.ArticaleContent, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <button type="submit" id="save">انشر</button>
+        }
+
+    </div>
+
+</section>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script>
+    $(function () {
+        //chick if the image is empty
+
+        $("#save").click(function () {
+            if ($("#article-cover").val() == "") {
+                $("#error-div").fadeIn();
+                $("#error-span").append("برجاء قم باختيار صورة للوظيفة");
+
+                return false;
+            }
+
+
+            //chick if image extention is valid
+
+            var filename = document.getElementById("article-cover").value;
+            var extentionfile = filename.substr(filename.lastIndexOf('.') + 1);
+            var validextention = ['jpg', 'png', 'gif', 'bmp', 'jpeg'];
+            if ($.inArray(extentionfile, validextention) == -1) {
+                $("#error-div").fadeIn();
+                $("#error-span").append("برجاء قم باختيار صورة بامتداد صحيح");
+                return false;
+            }
+            //check if image size smaller than 2m
+            var filesize = document.getElementById("article-cover").files[0].size / 1024 / 1024;
+            if (filesize > 2) {
+                $("#error-div").fadeIn();
+                $("#error-span").append("برجاء قم باختيار صورة حجمها اقل من 2 ميجا بايت");
+                return false;
+            }
+
+
+        });
+    });
+   
+
+    CKEDITOR.replace('ArticaleContent', {
+        contentsLangDirection: "rtl"
+    });
+
+
+  
+</script>
+
+<!--end form-->
+<!--Start Footer-->
+@*
+    <footer>
+        <div class="container">
+            <div class="options">
+                <ul class="list-unstyled">
+                    <li class="active"><a href="">الرئيسية</a></li>
+                    <li><a href="WhoAreWe">من نحن</a></li>
+                    <li><a href="">اكتب معنا</a></li>
+                </ul>
+            </div>
+            <div class="social-media">
+                <ul class="list-unstyled">
+                    <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                    <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                    <li><a href=""><i class="fab fa-telegram"></i></a></li>
+                    <li><a href=""><i class="fab fa-soundcloud"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!--End Footer-->
+    <script src="~/JS/jquery-3.5.1.min.js"></script>
+
+    <script src="~/JS/popper.min.js"></script>
+    <script src="~/JS/bootstrap.min.js"></script>
+    </body>
+
+    </html>
+*@

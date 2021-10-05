@@ -1,0 +1,90 @@
+/* Start General Style */
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  background-color: whitesmoke !important;
+  font-size: 20px;
+  color: #3B7575;
+  direction: rtl;
+  font-family: Cairo, -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol, noto color emoji !important; }
+
+/* End General Style */
+/* start UTILITIES Style */
+.active-link {
+  border-bottom: 3px solid #EBA756; }
+
+hr {
+  background-color: #EBA756;
+  height: 1.5px !important;
+  width: 150px;
+  margin-top: 0 !important;
+  margin-bottom: 50px !important; }
+
+.headline {
+  color: #3B7575;
+  font-size: 50px;
+  font-weight: bold; }
+
+.image {
+  overflow: hidden;
+  background-position: center;
+  background-size: cover; }
+
+span.see-more {
+  display: block;
+  width: 140px;
+  width: fit-content;
+  margin: 30px auto;
+  background-color: white;
+  border: none;
+  color: #EBA756;
+  padding: 5px 20px;
+  border-radius: 15px;
+  -webkit-box-shadow: 0 0.5px 1px #8d8d8d;
+  box-shadow: 0 0.5px 1px #8d8d8d;
+  cursor: pointer; }
+  span.see-more:hover {
+    -webkit-transform: scale(1.03, 1.03);
+    -ms-transform: scale(1.03, 1.03);
+    transform: scale(1.03, 1.03); }
+
+.profile-icon {
+  position: relative;
+  cursor: pointer; }
+  .profile-icon .profile-dropdown-list {
+    background-color: white;
+    color: #3B7575;
+    font-weight: bold;
+    width: 200px;
+    align-items: flex-start;
+    padding: 10px;
+    z-index: 10;
+    box-shadow: 1px 1px 5px #939393;
+    display: flex;
+    flex-direction: column;
+    position: absolute !important;
+    left: 5px;
+    top: 50px; }
+    .profile-icon .profile-dropdown-list .user-name {
+      font-weight: bold;
+      font-size: 18px; }
+    .profile-icon .profile-dropdown-list hr {
+      height: 1px !important;
+      margin-bottom: 10px !important; }
+    .profile-icon .profile-dropdown-list li {
+      margin-bottom: 10px;
+      font-size: 16px; }
+      .profile-icon .profile-dropdown-list li a {
+        cursor: pointer; }
+
+a {
+  text-decoration: none !important; }
+
+/* End UTILITIES Style */
+
+/*# sourceMappingURL=general-styles.css.map */

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<MOIC_ASU.Models.TempArticale>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<section class="articles-style text-center">
+
+    <div class="container">
+        <header>
+            <h2 class="headline articles-header text-right">
+                مقالاتنا
+            </h2>
+        </header>
+        <hr>
+
+
+
+        <section class="articles">
+            <div class="row ">
+                <div class="articles-row row justify-content-around">
+                    @foreach (var item in Model)
+                    {
+                    <article class="article col-lg-4 col-md-12">
+
+                        <div class="content">
+
+                            <div class="row">
+
+                                <!--put article image here  !!!!-->
+                                <div class="article-image  col-12">
+                                    <a href="@Url.Action("Details", "TempArticales",new { id=item.Id})">
+                                        <img src="~/Uploads/@Html.DisplayFor(modelItem => item.ArticaleCover)"
+                                             style="width:100%;height:205px; " />
+                                    </a>
+                                </div>
+
+
+                                <div class="article-info col-12">
+                                    <span class=article-category>
+                                        @Html.DisplayFor(modelItem => item.Categories.CAtegoryName)
+                                    </span>
+                                    <header>
+                                        <h3 class="article-header">
+                                            @Html.DisplayFor(modelItem => item.ArticaleTitle)
+                                        </h3>
+                                    </header>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })|
+                            @Html.ActionLink("Add","AddArticale",new { id=item.Id})
+                        </div>
+
+                    </article>
+
+                    }
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</section>
+
+
+   >

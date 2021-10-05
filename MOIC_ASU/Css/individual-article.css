@@ -1,0 +1,70 @@
+/* start general style*/
+@import url("https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap");
+body {
+  color: #3B7575;
+  font-family: "Amiri", serif; }
+
+/* end general style*/
+/*start article style*/
+article.individual-article {
+  margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  /*start article header*/
+  /*end article header*/ }
+  article.individual-article .article-header header h1 {
+    margin-bottom: 30px;
+    color: #3B7575;
+    font-weight: bold; }
+  article.individual-article .article-header header .article-image {
+    background-size: cover;
+    background-position: center center;
+    height: 500px; }
+  article.individual-article .article-header section.info {
+    margin-top: 20px; }
+    article.individual-article .article-header section.info .writer-info {
+      display: -webkit-inline-box;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      border: 1px solid grey;
+      border-radius: 4px;
+      padding: 2px 10px; }
+      article.individual-article .article-header section.info .writer-info .writer-image {
+        margin-left: 10px;
+        width: 50px; }
+        article.individual-article .article-header section.info .writer-info .writer-image img {
+          border-radius: 50%;
+          width: 40px;
+          height: 40px; }
+      article.individual-article .article-header section.info .writer-info .info h2 {
+        font-size: 1.2em;
+        color: #FF9452; }
+      article.individual-article .article-header section.info .writer-info .info p {
+        font-size: 0.7em;
+        color: #3B7575 !important; }
+    article.individual-article .article-header section.info ul.share-list {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+      article.individual-article .article-header section.info ul.share-list li {
+        margin-right: 20px; }
+        article.individual-article .article-header section.info ul.share-list li a {
+          color: #3B7575; }
+  article.individual-article .article-content {
+    margin-top: 80px;
+    font-size: 1.5em;
+    text-align: right;
+    line-height: 2.5em; }
+
+/*end article style*/
+/*start additional articles*/
+.additinoal-articles h2.headline {
+  text-align: right;
+  font-size: 35px; }
+
+/*end additional articles*/
+
+/*# sourceMappingURL=individual-article.css.map */

@@ -1,0 +1,83 @@
+
+/*Start Slide Style*/
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap');
+$mainColor:#3B7575;
+$accentColor:#EBA756;
+$mainFontFamily:"Amiri",serif;
+$mainFontSize:20px;
+
+
+.slider{
+    background-image: url('../../Images/logo3.png');
+    height: 680px;
+    background-position: center -180px;
+    background-size:cover;
+    background-repeat: no-repeat;
+    overflow: hidden;  
+    padding:80px 0;
+    color:#12292D;
+    font-size: $mainFontSize+5;
+
+    .fa-arrow-alt-circle-left,.fa-angle-right{
+        color:white;
+    }
+
+    .over-spoken{
+        background-color:whitesmoke;
+        color:$mainColor;
+        border-radius: 5px;
+        margin:auto;
+        overflow: hidden;
+        .spoken-image{
+            height: auto;
+        }
+        .spoken-text{
+            padding:30px 0;
+            p.text{
+            padding:0 40px;
+            }
+            text-align: right;
+        }
+        .spoken-writer{
+            padding:0 40px;
+            opacity: 0.7;  
+        }
+    }
+    .org-info{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        h2{
+            width:450px;
+            color:white;
+            text-align: center;
+            line-height: 1.5;
+            margin:auto;
+            font-size:1.6em
+        }
+        button{
+            cursor: pointer;
+            &:hover{
+                background-color:#f1b469
+            }
+            background-color:$accentColor;
+            border:none;
+            color:white;
+            padding:5px 12px;
+            border-radius: 5px;
+            margin-top:30px;
+            font-size:13px;
+        }
+    }
+}
+
+/*End Slide Style*/

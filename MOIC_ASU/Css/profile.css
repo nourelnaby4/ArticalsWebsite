@@ -1,0 +1,42 @@
+/* start general style*/
+@import url("https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap");
+/* end general style*/
+.user-info {
+  margin-top: 100px; }
+  .user-info .container {
+    display: flex; }
+  .user-info .profile-img {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 50px;
+    overflow: hidden;
+    border-radius: 50%; }
+    .user-info .profile-img img {
+      height: auto;
+      width: 100%; }
+  .user-info .text-info {
+    font-size: 1.2em;
+    margin-right: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; }
+    .user-info .text-info .main-info h1 {
+      color: #3B7575;
+      font-weight: bold;
+      display: inline-block; }
+    .user-info .text-info .main-info .admin-identity {
+      font-size: 0.8em !important;
+      display: inline-block;
+      margin-right: 20px; }
+    .user-info .text-info a {
+      font-size: 0.65em !important;
+      color: #FF9452 !important; }
+      .user-info .text-info a:hover {
+        color: #e27836 !important; }
+
+.articles-style h1 {
+  font-size: 30px; }
+.articles-style hr {
+  width: 250px; }
+
+/*# sourceMappingURL=profile.css.map */

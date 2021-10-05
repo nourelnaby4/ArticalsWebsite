@@ -1,0 +1,106 @@
+﻿@model MOIC_ASU.Models.TempArticale
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<section class="form text-right">
+    <div class="container">
+        <header class="write-header">
+            <h1>اكتب</h1>
+        </header>
+        <hr>
+        <input id="ArticaleCover" name="ArticaleCover" type="hidden" value="" />
+        <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+        @using (Html.BeginForm("Create", "TempArticales", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="alert alert-danger" id="error-div" style="display:none">
+                <span id="error-span">
+
+                </span>
+
+            </div>
+
+            <fieldset>
+                <label for="article-title">عنوان المقال</label>
+                <input type="text" id="article-title" name="ArticaleTitle">
+            </fieldset>
+            <fieldset>
+                <label for="article-cover">غلاف المقال</label>
+                <input type="file" id="article-cover" name="upload">
+            </fieldset>
+            <fieldset>
+                <label for="article-type">نوع المقال</label>
+                @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "atrtical-type" })
+
+            </fieldset>
+            @*
+                <div class="form-group">
+                    <label for="content">المحتوى</label>
+                    <!-- <textarea name="ArticaleContant" id="content" cols="30" rows="10"></textarea>-->
+                    @Html.TextAreaFor(model => model.AtricaleContant, new { htmlAtrributes = new { @class = "form-control", @id = "ArticaleContant" } })
+                    @Html.ValidationMessageFor(model => model.AtricaleContant, "", new { @class = "text-danger" })
+
+                    </div>
+            *@
+            <div class="form-group">
+                @Html.LabelFor(model => model.ArticaleContent, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.ArticaleContent, new { htmlAttributes = new { @class = "form-control", @id = "ArticaleContent" } })
+                    @Html.ValidationMessageFor(model => model.ArticaleContent, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <button type="submit" id="save">انشر</button>
+        }
+
+    </div>
+
+</section>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script>
+    $(function () {
+        //chick if the image is empty
+
+        $("#save").click(function () {
+            if ($("#article-cover").val() == "") {
+                $("#error-div").fadeIn();
+                $("#error-span").append("برجاء قم باختيار صورة للوظيفة");
+
+                return false;
+            }
+
+
+            //chick if image extention is valid
+
+            var filename = document.getElementById("article-cover").value;
+            var extentionfile = filename.substr(filename.lastIndexOf('.') + 1);
+            var validextention = ['jpg', 'png', 'gif', 'bmp', 'jpeg'];
+            if ($.inArray(extentionfile, validextention) == -1) {
+                $("#error-div").fadeIn();
+                $("#error-span").append("برجاء قم باختيار صورة بامتداد صحيح");
+                return false;
+            }
+            //check if image size smaller than 2m
+            var filesize = document.getElementById("article-cover").files[0].size / 1024 / 1024;
+            if (filesize > 2) {
+                $("#error-div").fadeIn();
+                $("#error-span").append("برجاء قم باختيار صورة حجمها اقل من 2 ميجا بايت");
+                return false;
+            }
+
+
+        });
+    });
+
+
+    CKEDITOR.replace('ArticaleContent', {
+        contentsLangDirection: "rtl"
+    });
+
+
+
+</script>

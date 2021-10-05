@@ -1,0 +1,173 @@
+﻿@model MOIC_ASU.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "MyProfile";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+
+}
+
+
+<!--Start user info -->
+<section class="user-info">
+    <div class="container">
+        <div class="profile-img"><img src="~/Images/abdo.jpg" alt="profile image"></div>
+        <section class="text-info">
+            <div class="main-info">
+                <!--user name-->
+                <h1>@Html.DisplayFor(model=>model.UserName)</h1>
+                <!--If he's not an admin, don't put it -->
+                <span class="admin-identity">(مسئول)</span>
+            </div>
+            <p>مبرمج مصري</p>
+            <a href="edit-profile.html">[تعديل البيانات]</a>
+        </section>
+    </div>
+</section>
+<!--End user info -->
+<!--Start published-articles info-->
+<section class="articles-style">
+    <div class="container">
+        <header>
+            <h1 class="headline articles-header text-right">
+                مقالات له تم نشرها
+            </h1>
+        </header>
+        <hr class="hr-article-style">
+        <form action="" method="GET" class="text-right search-form">
+            <fieldset>
+                <label for="article-name">إسم المقال</label>
+                <input type="text" id="article-name" name="article-name">
+            </fieldset>
+            <fieldset>
+                <label for="article-type">نوع المقال</label>
+                <input type="text" id="article-type" name="article-type">
+            </fieldset>
+            <button type="submit">بحث</button>
+        </form>
+        <section class="articles">
+            <div class="row ">
+                <article class="article col-lg-4 col-md-12">
+                    <div class="content">
+                        <div class="row">
+                            <!--put article image here  !!!!-->
+                            <div class="article-image  col-12"
+                                 style="background-image: url(Images/نبيل،-توفيق.jpg)">
+                            </div>
+
+                            <div class="article-info col-12">
+                                <span class=article-category>إصلاح</span>
+                                <!--put article category here  !!!!-->
+                                <header>
+                                    <h3 class="article-header">
+                                        النبيل
+                                        <!--put article title here  !!!!-->
+                                        والعرَّاب:
+                                        جعلا الشباب
+                                        يقرأ
+                                    </h3>
+                                </header>
+                                <div class="article-options">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                    <div class="options-list d-none">
+                                        <form action="">
+                                            <button class="delete-button" type="submit">
+                                                <i class="far fa-trash-alt"></i>
+                                            </button>
+                                        </form>
+                                        <a href="write-article.html" class="edit-article">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </article>
+                <article class="article col-lg-4 col-md-12">
+                    <div class="content">
+                        <div class="row">
+                            <!--put article image here  !!!!-->
+                            <div class="article-image  col-12"
+                                 style="background-image: url(Images/نبيل،-توفيق.jpg)">
+                            </div>
+
+                            <div class="article-info col-12">
+                                <span class=article-category>إصلاح</span>
+                                <!--put article category here  !!!!-->
+                                <header>
+                                    <h3 class="article-header">
+                                        النبيل
+                                        <!--put article title here  !!!!-->
+                                        والعرَّاب:
+                                        جعلا الشباب
+                                        يقرأ
+                                    </h3>
+                                </header>
+                                <div class="article-options">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                    <div class="options-list d-none">
+                                        <form action="">
+                                            <button class="delete-button" type="submit">
+                                                <i class="far fa-trash-alt"></i>
+                                            </button>
+                                        </form>
+                                        <a href="write-article.html" class="edit-article">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </article>
+                <article class="article col-lg-4 col-md-12">
+                    <div class="content">
+                        <div class="row">
+                            <!--put article image here  !!!!-->
+                            <div class="article-image  col-12"
+                                 style="background-image: url(Images/نبيل،-توفيق.jpg)">
+                            </div>
+
+                            <div class="article-info col-12">
+                                <span class=article-category>إصلاح</span>
+                                <!--put article category here  !!!!-->
+                                <header>
+                                    <h3 class="article-header">
+                                        النبيل
+                                        <!--put article title here  !!!!-->
+                                        والعرَّاب:
+                                        جعلا الشباب
+                                        يقرأ
+                                    </h3>
+                                </header>
+                                <div class="article-options">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                    <div class="options-list d-none">
+                                        <form action="">
+                                            <button class="delete-button" type="submit">
+                                                <i class="far fa-trash-alt"></i>
+                                            </button>
+                                        </form>
+                                        <a href="write-article.html" class="edit-article">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <a href="Article.html"><span class="see-more text-center">مشاهدة المزيد</span></a>
+    </div>
+</section>
+<!--End published-articles info-->
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

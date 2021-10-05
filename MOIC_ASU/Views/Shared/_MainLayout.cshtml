@@ -1,0 +1,191 @@
+﻿<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="discription" content="">
+    <title> @ViewBag.Title </title>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0"
+            nonce="bSIvUXvj"></script>
+    <!--
+        <link rel="stylesheet" href="~/Css/partials/navbar.css">
+        <link rel="stylesheet" href="~/Css/partials/footer.css">
+        <link rel="stylesheet" href="~/Css/Home/articles.css">
+        <link rel="stylesheet" href="~/Css/Home/slide.css">
+        <link rel="stylesheet" href="~/Css/Home/Gallery.css">
+        <link rel="stylesheet" href="~/Css/partials/General styles.css">
+        <link rel="stylesheet" href="~/Css/bootstrap.min.css">
+
+        <link rel="preload" as="style" href="~/Css/partials/navbar.css" onload="this.rel='stylesheet'">
+        <link rel="preload" as="style" href="~/Css/bootstrap.min.css" onload="this.rel='stylesheet'">
+        <link rel="preload" as="style" href="~/Css/partials/General styles.css" onload=" this.rel='stylesheet'">
+
+
+
+
+        <link rel="stylesheet" href="~/Css/partials/navbar.css">
+        <link rel="stylesheet" href="~/Css/partials/General styles.css">
+        <link rel="stylesheet" href="~/Css/partials/footer.css">
+        <link rel="stylesheet" href="~/Css/all.min.css">
+        <link rel="stylesheet" href="~/Css/bootstrap.min.css">
+        <link rel="stylesheet" href="~/Css/form-style.css">
+
+
+
+        <link rel="stylesheet" href="~/Css/profile.css">
+
+
+
+
+        <link rel="preload" as="style" href="~/Content/auth.css" onload="this.rel='stylesheet'">
+        <link rel="preload" as="style" href="~/Content/bootstrap.min.css" onload="this.rel='stylesheet'">
+    -->
+    <!--------------------------------------------------------------->
+    <!--
+    <link href="~/Css/admin-page.css" rel="stylesheet" />
+    <link href="~/Css/all.min.css" rel="stylesheet" />
+      <link href="~/Css/Article.css" rel="stylesheet" />
+
+      <link href="~/Css/articles.css" rel="stylesheet" />
+      <link href="~/Css/edit-profile.css" rel="stylesheet" />
+      <link href="~/Css/form-style.css" rel="stylesheet" />
+      <link href="~/Css/gallery.css" rel="stylesheet" />
+
+      <link href="~/Css/individual-article.css" rel="stylesheet" />
+      <link href="~/Css/profile.css" rel="stylesheet" />
+      <link href="~/Css/Publish.css" rel="stylesheet" />
+      <link href="~/Css/slide.css" rel="stylesheet" />
+      <link href="~/Css/who-are-we.css" rel="stylesheet" />
+
+
+
+    <link href="~/Css/partials/all.min.css" rel="stylesheet" />
+    <link href="~/Css/partials/bootstrap.min.css" rel="stylesheet" />
+     <link href="~/Css/partials/footer.css" rel="stylesheet" />
+     <link href="~/Css/partials/general-styles.css" rel="stylesheet" />
+    -->
+    <!---Home----->
+    <link rel="stylesheet" href="~/Css/partials/navbar.css">
+    <link rel="stylesheet" href="~/Css/partials/footer.css">
+    <link rel="stylesheet" href="~/Css/articles.css">
+    <link rel="stylesheet" href="~/Css/slide.css">
+<link href="~/Css/all.min.css" rel="stylesheet" />
+<link href="~/Css/slide.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Css/Home/Gallery.css">
+    <link rel="stylesheet" href="~/Css/partials/General styles.css">
+    <link rel="stylesheet" href="~/Css/bootstrap.min.css">
+
+    <!--profile-->
+    <link rel="stylesheet" href="~/Css/Partials/navbar.css">
+    <link rel="stylesheet" href="~/Css/Partials/footer.css">
+    <link rel="stylesheet" href="~/Css/Partials/general-styles.css">
+    <link rel="stylesheet" href="~/Css/Partials/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Css/articles.css">
+    <link rel="stylesheet" href="~/Css/profile.css">
+<!------------------------------------->
+
+
+
+
+</head>
+<body>
+    <!--Start header-->
+    <header class="home-header">
+        <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+            <div class="container">
+                <a class="navbar-brand text-center" href="@Url.Action("Index", "Home")">
+                    <img src="~/Images/Moic-logo.png" alt="Logo" />
+                </a>
+                <span class="logo-text"></span>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <ul class="list-unstyled dropdown-list d-lg-none d-xs-block">
+                </ul>
+
+                <div class="collapse navbar-collapse text-center " id="navbarNav">
+                    <ul class="navbar-nav d-flex">
+                        <li class="nav-item section-elements ">
+                            <a class="nav-link Home active-link " href="home/Index">الرئيسية</a>
+                        </li>
+
+                        <li class="nav-item section-elements">
+                            <a class="nav-link" href="@Url.Action("Index", "Articales")">مقالاتنا</a>
+                        </li>
+
+                        <li class="nav-item publish section-elements">
+                            <a class="nav-link" href="gallery.html">المعرض</a>
+                        </li>
+
+                        <li class="nav-item publish section-elements">
+                            <a class="nav-link" href="@Url.Action("Create", "TempArticales")"> اكتب معنا</a>
+                        </li>
+                    </ul>
+
+                    @*
+                        <!--an anonymous user (doesn't login or signup yet)-->
+                        <ul class="list-unstyled utilties">
+                            <li class="nav-item signup d-none">
+                                <a class="nav-link" href="@Url.Action("Register", "Account")">إشتراك</a>
+                            </li>
+                            <!--if he is signed in-->
+                            <li class="nav-item profile-icon d-lg-block d-none">
+                                <i class="fas fa-user"></i>
+                                <ul class="profile-dropdown-list inside-profile-dropdown-list list-unstyled d-none">
+                                    <li class="user-name">نور</li>
+
+                                    <li><a href="profile.html">الصفحة الشخصية</a></li>
+                                    <!--if he is an admin -->
+                                    <li><a href="@Url.Action("Login", "Account")">تسجيل خروج</a></li>
+                                    </ul>
+                                    </li>
+                                    </ul>
+                                    <!---->
+                    *@
+                    @Html.Partial("_Login")
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--End header-->
+    <!--End Slide-->
+    <div class="container">
+
+        @RenderBody()
+
+    </div>
+    <footer>
+        <div class="container">
+            <section class="options">
+                <ul class="list-unstyled">
+                    <li class="active"><a href="">الرئيسية</a></li>
+                    <li><a href="WhoAreWe">من نحن</a></li>
+                    <li><a href="">اكتب معنا</a></li>
+                </ul>
+            </section>
+            <section class="social-media">
+                <ul class="list-unstyled">
+                    <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                    <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                    <li><a href=""><i class="fab fa-telegram"></i></a></li>
+                    <li><a href=""><i class="fab fa-soundcloud"></i></a></li>
+                </ul>
+            </section>
+        </div>
+    </footer>
+    <!--End Footer-->
+
+
+
+
+    <script src="~/JS/jquery-3.5.1.min.js"></script>
+    <script src="~/JS/popper.min.js"></script>
+    <script src="~/JS/bootstrap.min.js"></script>
+    <script src="~/JS/validation.js"></script>
+    <script src="~/JS/general-options.js"></script>
+
+</body>
+</html>

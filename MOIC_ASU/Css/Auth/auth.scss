@@ -1,0 +1,157 @@
+
+/* Start General Style */
+
+$mainColor:#5C8C8C;
+$accentColor:#EBA756;
+$mainFontFamily:"Calibri";
+$mainFontSize:20px;
+* {
+	padding: 0;
+	margin: 0;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+body {
+	font-size: $mainFontSize !important;
+	color: $mainColor;
+	direction: rtl;
+	font-family: $mainFontFamily !important;
+}
+/* End General Style */
+
+/*start form style*/
+
+.body-content {
+	overflow: hidden;
+	p {
+		opacity: 0.7;
+	}
+	.col-6 {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	hr {
+		background-color: $accentColor;
+		height: 1px;
+		width: 150px;
+		margin-top: 0;
+		margin-bottom: 50px;
+	}
+	.login-form {
+		padding: 150px 100px !important;
+	}
+	.form-container {
+		padding: 60px 100px;
+		overflow: hidden;
+		margin-top: 50px;
+		color: $mainColor;
+		header h1 {
+			color: $mainColor;
+			font-weight: bold;
+			font-size: 55px;
+		}
+		form {
+			margin-top: 50px;
+			fieldset {
+				margin-top: 20px;
+				label {
+					opacity: 0.9;
+					font-weight: bold;
+					display: block;
+					font-size: 20px;
+				}
+				input {
+					color: $mainColor;
+					outline: none;
+					border: 1px solid rgb(200, 200, 200);
+					padding: 7px;
+					border-radius: 10px;
+					width: 300px;
+					&:focus {
+						border: 1px solid $accentColor;
+					}
+				}
+				::-webkit-input-placeholder {
+					opacity: 0.4;
+					color: $mainColor;
+				}
+				::-moz-placeholder {
+					opacity: 0.4;
+					color: $mainColor;
+				}
+				:-ms-input-placeholder {
+					opacity: 0.4;
+					color: $mainColor;
+				}
+				::-ms-input-placeholder {
+					opacity: 0.4;
+					color: $mainColor;
+				}
+				::placeholder {
+					opacity: 0.4;
+					color: $mainColor;
+				}
+			}
+			button {
+				background-color: $mainColor;
+				border: none;
+				color: white;
+				padding: 5px 20px;
+				border-radius: 10px;
+				opacity: 0.7;
+				margin: 30px 0 5px;
+				font-weight: bold;
+				font-size: 20px;
+				cursor: pointer;
+				&:hover {
+					opacity: 1;
+				}
+			}
+			.after-form {
+				margin-top: 10px;
+				.extra-option {
+					opacity: 1;
+					a {
+						color: $accentColor;
+						margin-right: 15px;
+					}
+				}
+			}
+		}
+	}
+	/*end form style*/
+	/*start MOIC image style*/
+	.image-container {
+		.image {
+			overflow: hidden;
+			background-size: cover;
+			background-position: 150px -150px;
+			height: 120%;
+			background-image: url("../Images/logo3.png");
+		}
+		.image-content {
+			position: absolute;
+			top: 100px;
+			left: 220px;
+			img {
+				width: 300px;
+			}
+		}
+	}
+}
+/*end MOIC image style*/
+
+@media (max-width:992px) {
+	label[for=email] {
+		padding-left: 152px;
+	}
+	label[for=password] {
+		padding-left: 210px;
+	}
+	label[for=first-name] {
+		padding-left: 200px;
+	}
+	label[for=last-name] {
+		padding-left: 200px;
+	}
+}

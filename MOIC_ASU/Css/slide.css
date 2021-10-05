@@ -1,0 +1,66 @@
+/*Start Slide Style*/
+@import url("https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap");
+.slider {
+  background-image: url("../../Images/logo3.png");
+  height: 680px;
+  background-position: center -180px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  padding: 80px 0;
+  color: #12292D;
+  font-size: 25px; }
+  .slider .fa-arrow-alt-circle-left, .slider .fa-angle-right {
+    color: white; }
+  .slider .over-spoken {
+    background-color: whitesmoke;
+    color: #3B7575;
+    border-radius: 5px;
+    margin: auto;
+    overflow: hidden; }
+    .slider .over-spoken .spoken-image {
+      height: auto; }
+    .slider .over-spoken .spoken-text {
+      padding: 20px 0;
+      text-align: right; }
+      .slider .over-spoken .spoken-text p.text {
+        padding: 0 40px;
+        margin-bottom: 0; }
+    .slider .over-spoken .spoken-writer {
+      font-size: 17px;
+      padding: 0 40px;
+      opacity: 0.7; }
+  .slider .org-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .slider .org-info h2 {
+      width: 340px;
+      color: white;
+      text-align: center;
+      line-height: 1.5;
+      margin: auto;
+      font-size: 1.6em; }
+    .slider .org-info button {
+      cursor: pointer;
+      background-color: #EBA756;
+      border: none;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 5px;
+      margin-top: 30px;
+      font-size: 13px; }
+      .slider .org-info button:hover {
+        background-color: #f1b469; }
+
+/*End Slide Style*/
+
+/*# sourceMappingURL=slide.css.map */

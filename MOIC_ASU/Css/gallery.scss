@@ -1,0 +1,69 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap');
+$mainColor:#3B7575;
+$accentColor:#EBA756;
+$mainFontFamily:"Amiri",serif;
+$mainFontSize:20px;
+
+
+.gallery{
+    padding-top:30px;
+    text-align: center;
+    .campaigns{
+      overflow: hidden;
+      .col-12, .col-md-5{
+         padding:0;
+      }
+    .campaign{
+         border:2px solid rgb(124, 124, 124);
+         margin-bottom: 40px;
+         height:250px;
+         overflow: hidden;
+         cursor: pointer;
+         -webkit-transition: all 0.4s;
+         -o-transition: all 0.4s;
+         transition: all 0.4s;
+         &:hover{
+            -webkit-box-shadow: 1px 1px 5px rgb(206, 206, 206);
+                    box-shadow: 1px 1px 5px rgb(206, 206, 206);
+            -webkit-transform: scale(1.03,1.03);
+                -ms-transform: scale(1.03,1.03);
+                    transform: scale(1.03,1.03);
+         }
+
+         .campaign-images{
+            height:100%;
+            display:grid;
+            -ms-grid-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
+            -ms-grid-rows: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+         }
+
+         .individual-image{
+            height:250px;
+         }
+         .item-image{
+            background-size:cover;
+            height:100%;
+            background-position: center center;
+            width:100%;
+         }
+         .image{
+            padding:1px;
+            height:125px;
+            .img{
+               height:100%;
+               background-size:cover;
+               background-position: center center;
+           }    
+        }
+     
+     }
+   }
+}
+@media (min-width:700px){
+   .campaign{
+      margin-right:15px;
+   }
+}
