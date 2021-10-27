@@ -217,7 +217,6 @@ F:\project\MOIC_ASU\MOIC_ASU\bin\Microsoft.Owin.Security.Twitter.xml
 F:\project\MOIC_ASU\MOIC_ASU\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 F:\project\MOIC_ASU\MOIC_ASU\bin\Microsoft.Owin.Security.OAuth.xml
 F:\project\MOIC_ASU\MOIC_ASU\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-F:\project\MOIC_ASU\MOIC_ASU\obj\Debug\MOIC_ASU.csproj.AssemblyReference.cache
 F:\project\MOIC_ASU\MOIC_ASU\obj\Debug\MOIC_ASU.Migrations.addcategory.resources
 F:\project\MOIC_ASU\MOIC_ASU\obj\Debug\MOIC_ASU.Migrations.addArticale.resources
 F:\project\MOIC_ASU\MOIC_ASU\obj\Debug\MOIC_ASU.Migrations.adduserarticales.resources

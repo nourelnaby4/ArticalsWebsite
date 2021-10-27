@@ -78,8 +78,7 @@ namespace MOIC_ASU.Controllers
                 return View(model);
             }
 
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
+            
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
@@ -122,10 +121,7 @@ namespace MOIC_ASU.Controllers
                 return View(model);
             }
 
-            // The following code protects for brute force attacks against the two factor codes. 
-            // If a user enters incorrect codes for a specified amount of time then the user account 
-            // will be locked out for a specified amount of time. 
-            // You can configure the account lockout settings in IdentityConfig
+         
             var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
@@ -140,7 +136,65 @@ namespace MOIC_ASU.Controllers
             }
         }
 
-        //
+        #region
+        //if we want to  confirm the account
+        //// POST: /Account/Register  
+        //[HttpPost]
+        //[AllowAnonymous]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> Register(RegisterViewModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var user = new ApplicationUser { UserName = model.Email, Email = model.Email,UserType=model.UserType };
+        //        ApplicationDbContext context = new ApplicationDbContext();
+        //        var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+        //        if (!roleManager.RoleExists("User"))
+        //        {
+        //            var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+        //            role.Name = "User";
+        //            roleManager.Create(role);
+        //        }
+        //        var result = await UserManager.CreateAsync(user, model.Password);
+        //        if (result.Succeeded)
+        //        {
+        //            var result1 = UserManager.AddToRole(user.Id, "User");
+        //            await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+        //            string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+        //            var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+        //            // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");  
+        //            string body = string.Empty;
+        //            using (StreamReader reader = new StreamReader(Server.MapPath("~/MailTemplate/AccountConfirmation.html")))
+
+        //            {
+        //                body = reader.ReadToEnd();
+        //            }
+        //            body = body.Replace("{ConfirmationLink}", callbackUrl);
+        //            body = body.Replace("{UserName}", model.Email);
+        //            bool IsSendEmail = SendEmail.EmailSend(model.Email, "Confirm your account", body, true);
+
+        //            if (IsSendEmail)
+        //            {
+        //                return RedirectToAction("Login", "Account");
+        //                var user1 = await UserManager.FindByEmailAsync(model.Email);
+        //                if (user1 != null)
+        //                {
+        //                    if (!await UserManager.IsEmailConfirmedAsync(user1.Id))
+        //                    {
+        //                        ModelState.AddModelError("", "You must have a confirmed email to log on.");
+        //                        return View();
+        //                    }
+
+        //                }
+        //            }
+        //        }
+        //        AddErrors(result);
+        //    }
+        //    // If we got this far, something failed, redisplay form  
+        //    return View(model);
+
+        //}
+        #endregion
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
@@ -150,7 +204,6 @@ namespace MOIC_ASU.Controllers
 
         //
         // POST: /Account/Register
-        // POST: /Account/Register  
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -158,7 +211,7 @@ namespace MOIC_ASU.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email,UserType=model.UserType };
+                var user = new ApplicationUser { UserName = model.username, Email = model.Email, UserType = model.UserType };
                 ApplicationDbContext context = new ApplicationDbContext();
                 var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
                 if (!roleManager.RoleExists("User"))
@@ -172,38 +225,16 @@ namespace MOIC_ASU.Controllers
                 {
                     var result1 = UserManager.AddToRole(user.Id, "User");
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                    string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");  
-                    string body = string.Empty;
-                    using (StreamReader reader = new StreamReader(Server.MapPath("~/MailTemplate/AccountConfirmation.html")))
-                    // using (StreamReader reader = new StreamReader(Server.MapPath("~/Views/Account/ConfirmEmail.cshtml")))
-                    {
-                        body = reader.ReadToEnd();
-                    }
-                    body = body.Replace("{ConfirmationLink}", callbackUrl);
-                    body = body.Replace("{UserName}", model.Email);
-                    bool IsSendEmail = SendEmail.EmailSend(model.Email, "Confirm your account", body, true);
-                    if (IsSendEmail)
-                    {
-                        //return RedirectToAction("Login", "Account");
-                        var user1 = await UserManager.FindByEmailAsync(model.Email);
-                        if (user1 != null)
-                        {
-                            if (!await UserManager.IsEmailConfirmedAsync(user1.Id))
-                            {
-                                ModelState.AddModelError("", "You must have a confirmed email to log on.");
-                                return View();
-                            }
 
-                        }
-                    }
+                
+
+                    return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             }
-            // If we got this far, something failed, redisplay form  
-            return View(model);
 
+            // If we got this far, something failed, redisplay form
+            return View(model);
         }
         //
         // GET: /Account/ConfirmEmail

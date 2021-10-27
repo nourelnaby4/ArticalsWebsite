@@ -20,7 +20,7 @@
         <section class="articles">
             <div class="row ">
                 <div class="articles-row row justify-content-around">
-                    @foreach (var item in Model)
+                    @foreach (var item in Model.Where(a=>a.User.UserName==User.Identity.Name))
                     {
                     <article class="article col-lg-4 col-md-12">
 
@@ -55,12 +55,14 @@
 
 
                         <div>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })|
-                            @Html.ActionLink("Add","AddArticale",new { id=item.Id})
-                        </div>
+                            @Html.ActionLink("تعديل", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("التفاصيل", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("حذف", "Delete", new { id = item.Id })|
 
+                        </div>
+                        <br /><br />
+                        @Html.ActionLink("النشر على الصفحة الرسمية", "Add", new { id = item.Id })|
+                        <div class="alert alert-info">يجب ألا يظهر هذا الاختيار الا اذا كنت مسؤل في الموقع ولكن الخيار للتجربة</div>
                     </article>
 
                     }
@@ -75,4 +77,4 @@
 </section>
 
 
-   >
+   

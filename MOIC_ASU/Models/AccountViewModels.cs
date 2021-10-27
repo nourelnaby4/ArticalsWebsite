@@ -48,9 +48,9 @@ namespace MOIC_ASU.Models
 
     public class LoginViewModel
     {
-        [Required]
-        [Display(Name = "اسم المستخدم")]
-        public string UserName { get; set; }
+        
+        //[Display(Name = "اسم المستخدم")]
+        //public string UserName { get; set; }
         [Required]
         [Display(Name = "Email")]
         [EmailAddress]

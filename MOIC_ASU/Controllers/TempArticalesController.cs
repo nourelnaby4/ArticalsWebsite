@@ -12,6 +12,7 @@ using MOIC_ASU.Models;
 
 namespace MOIC_ASU.Controllers
 {
+    [Authorize]
     public class TempArticalesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -67,7 +68,14 @@ namespace MOIC_ASU.Controllers
             }
             if (tempArticale != null)
             {
-                Articale table2 = new Articale { ArticaleTitle=tempArticale.ArticaleTitle,ArticaleContent=tempArticale.ArticaleContent,ArticaleCover=tempArticale.ArticaleCover,CategoryId=tempArticale.CategoryId,UserID=tempArticale.UserID};
+                Articale table2 = new Articale 
+                {
+                    ArticaleTitle=tempArticale.ArticaleTitle,
+                    ArticaleContent=tempArticale.ArticaleContent,
+                    ArticaleCover=tempArticale.ArticaleCover,
+                    CategoryId=tempArticale.CategoryId,
+                    UserID=tempArticale.UserID
+                };
                 db.Articales.Add(table2);
                 db.SaveChanges();
             }

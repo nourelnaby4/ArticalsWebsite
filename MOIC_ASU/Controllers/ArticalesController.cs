@@ -13,16 +13,19 @@ using MOIC_ASU.Models;
 
 namespace MOIC_ASU.Controllers
 {
+    [Authorize]
     public class ArticalesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Articales
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var articales = db.Articales.Include(a => a.Categories).OrderByDescending(a=>a.Id);
             return View(articales.ToList());
         }
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)
